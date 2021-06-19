@@ -147,12 +147,11 @@ exports.execute = function (req, res) {
 
 function httpRequest(countryCode, mobileNumber, message, outArgs){
   var request = require('then-request');
-  request('POST', {
+  request('POST', process.env.BLOWERIO_URL + '/messages' , {
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'
     },
-    url:     process.env.BLOWERIO_URL + '/messages',
     form:    {
       to: countryCode + mobileNumber,
       message: message

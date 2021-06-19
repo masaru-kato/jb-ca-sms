@@ -69,34 +69,24 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-  var decodedArgs;
-  var contactKey = "";
-  var inParams = "";
   var params = "";
 
-  // example on how to decode JWT
   JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
     // verification error -> unauthorized request
     if (err) {
+      console.error("【ERROR】 JWT verification");
       console.error(err);
       return res.status(401).end();
     }
 
     if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
       // ok
-      // decoded in arguments
-      decodedArgs = decoded.inArguments[0];
-
       console.log(`■IN ARGS: ${JSON.stringify(decoded.inArguments)}`);
-
-      contactKey = decodedArgs.contactKey;
-      inParams = decoded.inArguments;
       params = decoded.inArguments[0];
-
     } else {
       // NG
-      console.error('inArguments invalid.');
+      console.error(`【ERROR】 inArguments invalid. : ${JSON.stringify(decoded.inArguments)}`);
       return res.status(400).end();
     }
   });
@@ -114,7 +104,6 @@ exports.execute = function (req, res) {
   var mobileNumber = params.phone;
   var message = params.message;
   
-  /*
   request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
@@ -136,23 +125,25 @@ exports.execute = function (req, res) {
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
   })
-  */
   //■■■■ REST API Call to send messge END　■■■■  
 
-  var ret = httpRequest(countryCode, mobileNumber, message, outArgs);
+  //outArgs = httpRequest(countryCode, mobileNumber, message, outArgs);
 
   console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
   return res.status(200).json(outArgs);
 };
 
+/*
 function httpRequest(countryCode, mobileNumber, message, outArgs){
   var request = require('then-request');
-  request('POST', process.env.BLOWERIO_URL + '/messages' , {
+  request('POST', 
+    process.env.BLOWERIO_URL + '/messages' ,
+    {
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'
     },
-    form:    {
+    form: {
       to: countryCode + mobileNumber,
       message: message
     }
@@ -165,9 +156,10 @@ function httpRequest(countryCode, mobileNumber, message, outArgs){
       outArgs.error = apiResult.message;
     }
     console.log("API ret : "+response.statusCode);
-    return response.statusCode;
+    return outArgs;
   });
 }
+*/
 
 /*
  * POST Handler for /publish/ route of Activity.

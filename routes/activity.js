@@ -98,7 +98,7 @@ exports.execute = function (req, res) {
   var message = params.message;
 
   var outArgs = {
-    Status: 'OK',
+    status: 'OK',
     error : "none",
     info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
     retmsg: "none"
@@ -120,7 +120,7 @@ exports.execute = function (req, res) {
     } else {
       var apiResult = JSON.parse(body);
       console.log('Error was: ' + apiResult.message);
-      outArgs.Status = 'Error';
+      outArgs.status = 'Error';
       outArgs.error = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }

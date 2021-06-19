@@ -110,7 +110,7 @@ exports.execute = function (req, res) {
 
   //■■■■ REST API Call to send messge START　■■■■
   var request = require('request');
-  var countryCode = (params.countryCode) ? '+81' : params.countryCode; 
+  var countryCode = (params.countryCode) ? params.countryCode : '+81'; 
   var mobileNumber = params.phone;
   var message = params.message;
   

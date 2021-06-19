@@ -17,11 +17,11 @@
            "inArguments":[
             {
               "countryCode": "",
-              "phone": "",
-              "message": "",
               "contactKey": "{{Contact.Key}}",
+              "phone": "{{Contact.Default.SMS}}",
+              "message": "",
               "name": "{{Contact.Attribute.TestDE1.FirstName}}",
-              "email": "{{Contact.Attribute.TestDE1.Email}}",
+              "email": "{{InteractionDefaults.Email}}",
               "info": ""
             }
 			    ],

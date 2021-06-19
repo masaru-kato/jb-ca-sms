@@ -18,7 +18,7 @@
             {
               "countryCode": "",
               "contactKey": "{{Contact.Key}}",
-              "phone": "{{Contact.Default.SMS}}",
+              "phone": "{{InteractionDefaults.SMS}}",
               "message": "",
               "name": "{{Contact.Attribute.TestDE1.FirstName}}",
               "email": "{{InteractionDefaults.Email}}",

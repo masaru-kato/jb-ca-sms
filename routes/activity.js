@@ -91,18 +91,18 @@ exports.execute = function (req, res) {
     }
   });
 
-  var outArgs = {
-    status: 'OK',
-    error : "none",
-    info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
-    retmsg: "none"
-  };
-
   //■■■■ REST API Call to send messge START　■■■■
   var request = require('request');
   var countryCode = (params.countryCode) ? params.countryCode : '+81'; 
   var mobileNumber = params.phone;
   var message = params.message;
+
+  var outArgs = {
+    Status: 'OK',
+    error : "none",
+    info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
+    retmsg: "none"
+  };
   
   request.post({
     headers: {
@@ -120,7 +120,7 @@ exports.execute = function (req, res) {
     } else {
       var apiResult = JSON.parse(body);
       console.log('Error was: ' + apiResult.message);
-      outArgs.status = 'Error';
+      outArgs.Status = 'Error';
       outArgs.error = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }

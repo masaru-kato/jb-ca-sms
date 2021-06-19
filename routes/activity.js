@@ -114,6 +114,7 @@ exports.execute = function (req, res) {
   var mobileNumber = params.phone;
   var message = params.message;
   
+  /*
   request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
@@ -128,19 +129,46 @@ exports.execute = function (req, res) {
     if (!error && response.statusCode == 201)  {
       console.log('Message sent!');
     } else {
-      var apiResult = JSON.parse(body)
+      var apiResult = JSON.parse(body);
       console.log('Error was: ' + apiResult.message);
       outArgs.status = 'Error';
       outArgs.error = apiResult.message;
-      console.error(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
+      console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
   })
+  */
   //■■■■ REST API Call to send messge END　■■■■  
+
+  var ret = httpRequest(countryCode, mobileNumber, message, outArgs);
 
   console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
   return res.status(200).json(outArgs);
 };
 
+function httpRequest(countryCode, mobileNumber, message, outArgs){
+  var request = require('then-request');
+  request('POST', {
+    headers: {
+      'content-type' : 'application/x-www-form-urlencoded',
+      'Accepts': 'application/json'
+    },
+    url:     process.env.BLOWERIO_URL + '/messages',
+    form:    {
+      to: countryCode + mobileNumber,
+      message: message
+    }
+  }).done(function (response) {
+    if(response.statusCode == 201){
+      //success
+    }else{
+      var apiResult = JSON.parse(response.body);
+      outArgs.status = 'Error';
+      outArgs.error = apiResult.message;
+    }
+    console.log("API ret : "+response.statusCode);
+    return response.statusCode;
+  });
+}
 
 /*
  * POST Handler for /publish/ route of Activity.

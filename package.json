@@ -1,5 +1,5 @@
 {
-  "name": "jb-activity-template",
+  "name": "jb-ca-sms",
   "version": "1.0.0",
   "description": "Journey Builder Activity Template",
   "engines": {
@@ -18,7 +18,7 @@
     "salesforce marketing cloud",
     "heroku"
   ],
-  "author": "Devs United",
+  "author": "salesforce.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/masaru-kato/jb-ca-sms/issues"
@@ -31,11 +31,9 @@
     "dateformat": "^3.0.3",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
-    "jade": "*",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^3.3.1",
-    "pg": "^8.4.1",
     "request": "^2.88.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "then-request": "^6.0.2"
   }
 }

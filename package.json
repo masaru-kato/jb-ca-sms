@@ -1,0 +1,41 @@
+{
+  "name": "jb-activity-template",
+  "version": "1.0.0",
+  "description": "Journey Builder Activity Template",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masaru-kato/jb-ca-sms.git"
+  },
+  "keywords": [
+    "journey",
+    "builder",
+    "salesforce marketing cloud",
+    "heroku"
+  ],
+  "author": "Devs United",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masaru-kato/jb-ca-sms/issues"
+  },
+  "homepage": "https://github.com/masaru-kato/jb-ca-sms/#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bower": "^1.8.0",
+    "date-utils": "^1.2.21",
+    "dateformat": "^3.0.3",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "jade": "*",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.1",
+    "pg": "^8.4.1",
+    "request": "^2.88.0",
+    "require": "^2.4.20"
+  }
+}

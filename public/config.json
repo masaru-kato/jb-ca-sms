@@ -1,0 +1,103 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "icon": "images/icon.png",
+        "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+            "name": "JB-CA-SMS",
+          "description": "Journey Builder Custom Activity Sample to Send SMS",
+          "step1Label": "Configure Activity"
+        }
+    },
+    "arguments": {
+        "execute": {
+           "inArguments":[
+            {
+              "countryCode": "",
+              "phone": "",
+              "message": "",
+              "contactKey": "{{Contact.Key}}",
+              "name": "{{Contact.Attribute.TestDE1.FirstName}}",
+              "email": "{{Contact.Attribute.TestDE1.Email}}",
+              "info": ""
+            }
+			    ],
+          "outArguments": [
+            {
+              "status":"",
+              "error": "",
+              "info": "",
+              "retmsg": ""
+            }
+          ],
+          "url": "https://jb-ca-sample-sms.herokuapp.com/execute",
+           "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    "configurationArguments": {
+      "applicationExtensionKey": "228cdc47-8f2a-4d87-a7bd-930565df6e20",
+      "save": {
+        "url": "https://jb-ca-sample-sms.herokuapp.com/save",
+          "verb": "POST",
+        "useJwt": true
+       },
+       "publish": {
+        "url": "https://jb-ca-sample-sms.herokuapp.com/publish",
+           "verb": "POST",
+        "useJwt": true
+       },
+      "stop": {
+        "url": "https://jb-ca-sample-sms.herokuapp.com/stop",
+           "verb": "POST",
+        "useJwt": true
+      },
+      "validate": {
+        "url": "https://jb-ca-sms.herokuapp.com/validate",
+        "verb": "POST",
+        "useJwt": true
+      }
+    },
+    "wizardSteps": [
+        { "label": "Configure Activity", "key": "step1" }
+    ],
+    "userInterfaces": {
+        "configModal": {
+            "height": 400,
+            "width": 1000,
+          "fullscreen": false
+        }
+    },
+    "schema": {
+      "arguments": {
+          "execute": {
+              "inArguments": [
+                {
+                  "countryCode": { "dataType": "Text", "isNullable": false, "direction": "in" },
+                  "phone": { "dataType": "Text", "isNullable": true, "direction": "in" },
+                  "message": { "dataType": "Text", "isNullable": true, "direction": "in" },
+                  "contactKey": { "dataType": "Text", "isNullable": false, "direction": "in" },
+                  "name": { "dataType": "Text", "isNullable": true, "direction": "in" },
+                  "email": { "dataType": "Text", "isNullable": true, "direction": "in" },
+                  "info": { "dataType": "Text", "isNullable": true, "direction": "in" }
+                }      
+              ],
+              "outArguments": [
+                {
+                  "status": {"dataType": "Text","direction": "out","access": "visible"},
+                  "error": {"dataType": "Text","direction": "out","access": "visible"},
+                  "info": {"dataType": "Text","direction": "out","access": "visible"},
+                  "retmsg": {"dataType": "Text","direction": "out","access": "visible"}
+                }
+              ]
+          }
+      }
+  }
+}

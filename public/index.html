@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var config = {
+                baseUrl: 'js'
+            };
+
+            var dependencies = [
+                'customActivity'
+            ];
+
+            require(config, dependencies);
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="step1" class="step">
+        <div class="slds-grid">
+            <main class="slds-col">
+                <h1>welcome to your activity!</h1>
+            </main>
+        </div>
+        <hr />
+        <div class="alert alert-danger" id="errmsg" role="alert" style="display: none;">
+            ★！バリデーションエラー！★
+        </div>
+        <div class="jumbotron p-3">
+            <form>
+                <div class="form-group row">
+                    <label for="message" class="col-sm-2 col-form-label">SMS Message</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="message" placeholder="message here *required" rows="10"　required></textarea>
+                    </div>
+                    <label for="message" class="col-sm-2 col-form-label">Additional Info</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="information" type="text" placeholder="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

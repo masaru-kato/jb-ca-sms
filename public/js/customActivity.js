@@ -84,9 +84,10 @@ define([
         // 設定画面の初期表示 ※設定値はconfig.jsonで定義しておく
         var msg = payload.arguments.execute.inArguments[0].message;
         var info = payload.arguments.execute.inArguments[0].info;
-        console.log(`values are ${msg}`);
+        console.log(`values are ${msg}|${info}`);
 
         $('#message').val(msg);
+        $('#information').val(info);
 
     }
 
@@ -96,7 +97,7 @@ define([
         var msg = $('#message').val();
         var info = $('#information').val();
 
-        payload.arguments.execute.inArguments[0].messge = msg;
+        payload.arguments.execute.inArguments[0].message = msg;
         payload.arguments.execute.inArguments[0].info = info;
 
         // Valication check

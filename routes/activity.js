@@ -101,11 +101,11 @@ exports.execute = function (req, res) {
     }
   });
 
-  let outArgs = {
+  var outArgs = {
     status: 'OK',
-    error : "",
-    info: "",
-    retmsg: ""
+    error : "none",
+    info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
+    retmsg: "none"
   };
 
   //■■■■ REST API Call to send messge START　■■■■
@@ -132,6 +132,7 @@ exports.execute = function (req, res) {
       console.log('Error was: ' + apiResult.message);
       outArgs.status = 'Error';
       outArgs.error = apiResult.message;
+      console.error(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
     }
   })
   //■■■■ REST API Call to send messge END　■■■■  

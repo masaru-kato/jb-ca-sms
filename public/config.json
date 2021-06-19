@@ -33,7 +33,7 @@
               "retmsg": ""
             }
           ],
-          "url": "https://jb-ca-sample-sms.herokuapp.com/execute",
+          "url": "https://jb-ca-sms.herokuapp.com/execute",
            "verb": "POST",
             "body": "",
             "header": "",
@@ -45,17 +45,17 @@
     "configurationArguments": {
       "applicationExtensionKey": "228cdc47-8f2a-4d87-a7bd-930565df6e20",
       "save": {
-        "url": "https://jb-ca-sample-sms.herokuapp.com/save",
+        "url": "https://jb-ca-sms.herokuapp.com/save",
           "verb": "POST",
         "useJwt": true
        },
        "publish": {
-        "url": "https://jb-ca-sample-sms.herokuapp.com/publish",
+        "url": "https://jb-ca-sms.herokuapp.com/publish",
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
-        "url": "https://jb-ca-sample-sms.herokuapp.com/stop",
+        "url": "https://jb-ca-sms.herokuapp.com/stop",
            "verb": "POST",
         "useJwt": true
       },

@@ -124,13 +124,12 @@ exports.execute = function (req, res) {
       outArgs.error = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
-  })
+    console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
+    return res.status(200).json(outArgs);
+    })
   //■■■■ REST API Call to send messge END　■■■■  
 
   //outArgs = httpRequest(countryCode, mobileNumber, message, outArgs);
-
-  console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
-  return res.status(200).json(outArgs);
 };
 
 /*

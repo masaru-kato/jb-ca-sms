@@ -25,7 +25,14 @@
           "info": ""
         }
       ],
-      "outArguments": [],
+      "outArguments": [
+        {
+          "status": "",
+          "error": "",
+          "info": "",
+          "retmsg": ""
+        }
+      ],
       "url": "https://jb-ca-sms.herokuapp.com/execute",
       "verb": "POST",
       "body": "",
@@ -113,7 +120,30 @@
             }
           }
         ],
-        "outArguments": []
+        "outArguments": [
+          {
+            "status": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            },
+            "error": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            },
+            "info": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            },
+            "retmsg": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            }
+          }
+        ]
       }
     }
   }

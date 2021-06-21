@@ -124,41 +124,13 @@ exports.execute = function (req, res) {
       outArgs.error = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
+
+    // return result
     console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
     return res.status(200).json(outArgs);
-    })
+  })
   //■■■■ REST API Call to send messge END　■■■■  
-
-  //outArgs = httpRequest(countryCode, mobileNumber, message, outArgs);
 };
-
-/*
-function httpRequest(countryCode, mobileNumber, message, outArgs){
-  var request = require('then-request');
-  request('POST', 
-    process.env.BLOWERIO_URL + '/messages' ,
-    {
-    headers: {
-      'content-type' : 'application/x-www-form-urlencoded',
-      'Accepts': 'application/json'
-    },
-    form: {
-      to: countryCode + mobileNumber,
-      message: message
-    }
-  }).done(function (response) {
-    if(response.statusCode == 201){
-      //success
-    }else{
-      var apiResult = JSON.parse(response.body);
-      outArgs.status = 'Error';
-      outArgs.error = apiResult.message;
-    }
-    console.log("API ret : "+response.statusCode);
-    return outArgs;
-  });
-}
-*/
 
 /*
  * POST Handler for /publish/ route of Activity.

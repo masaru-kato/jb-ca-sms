@@ -104,7 +104,7 @@ exports.execute = function (req, res) {
     retmsg: "none"
   };
   
-  await request.post({
+  request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'

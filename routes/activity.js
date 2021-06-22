@@ -132,7 +132,7 @@ exports.execute = function (req, res) {
   //■■■■ REST API Call to send messge END　■■■■  
 };
 
-exports.test = async function (req, res) {
+exports.test = function (req, res) {
   //■■■■ REST API Call to send messge START　■■■■
   var request = require('request');
   var countryCode = '+81'; 
@@ -146,7 +146,7 @@ exports.test = async function (req, res) {
     retmsg: "none"
   };
   
-  await request.post({
+  request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'

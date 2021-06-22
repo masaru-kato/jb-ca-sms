@@ -129,10 +129,11 @@ exports.execute = async function (req, res) {
     if (response.statusCode == 201)  {
       console.log('Message sent!');
     } else {
-      var apiResult = JSON.parse(response.body);
-      console.log('Error was: ' + apiResult.message);
+      console.log(response);
+      //var apiResult = JSON.parse(response.body);
+      //console.log('Error was: ' + apiResult.message);
       outArgs.status = 'Error';
-      outArgs.error = apiResult.message;
+      //outArgs.error = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
 

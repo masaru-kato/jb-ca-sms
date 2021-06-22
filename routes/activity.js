@@ -109,7 +109,7 @@ exports.execute = async function (req, res) {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'
     },
-    form:    {
+    formData:    {
       to: countryCode + mobileNumber,
       message: message
     }

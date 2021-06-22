@@ -140,7 +140,7 @@ exports.execute = async function (req, res) {
     // return result
     console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
     return res.status(200).json(outArgs);
-  })
+
   //■■■■ REST API Call to send messge END　■■■■  
 };
 

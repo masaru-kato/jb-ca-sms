@@ -112,7 +112,8 @@ exports.execute = async function (req, res) {
     form:    {
       'to': countryCode + mobileNumber,
       'message': message
-    }
+    },
+    resolveWithFullResponse: true
   });
   /*
   , function(error, response, body){

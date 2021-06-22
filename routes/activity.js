@@ -104,12 +104,11 @@ exports.execute = async function (req, res) {
     retmsg: "none"
   };
   
-  const response = await request.post({
+  const response = await request.post(process.env.BLOWERIO_URL + '/messages', {
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'
     },
-    url:     process.env.BLOWERIO_URL + '/messages',
     form:    {
       to: countryCode + mobileNumber,
       message: message

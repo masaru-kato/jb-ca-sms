@@ -97,11 +97,11 @@ exports.execute = async function (req, res) {
   var mobileNumber = params.phone;
   var message = params.message;
 
-  var outArgs = {
-    status: 'OK',
-    error : "none",
-    info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
-    retmsg: "none"
+  const outArgs = {
+    status:'OK',
+    error :"none",
+    info:`countryCode:${countryCode}|mobileNumber:${mobileNumber}|message:${message}`,
+    retmsg:"none"
   };
   
   /*

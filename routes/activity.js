@@ -67,7 +67,7 @@ exports.save = function (req, res) {
 /*
  * POST Handler for /execute/ route of Activity.
  */
-exports.execute = function (req, res) {
+exports.execute = async function (req, res) {
 
   var params = "";
 
@@ -104,7 +104,7 @@ exports.execute = function (req, res) {
     retmsg: "none"
   };
   
-  request.post({
+  await request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'

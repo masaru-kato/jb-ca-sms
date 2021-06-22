@@ -104,7 +104,7 @@ exports.execute = async function (req, res) {
     retmsg: "none"
   };
   
-  await request.post({
+  const response = await request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'
@@ -114,11 +114,23 @@ exports.execute = async function (req, res) {
       to: countryCode + mobileNumber,
       message: message
     }
-  }, function(error, response, body){
+  });
+  /*
+  , function(error, response, body){
     if (!error && response.statusCode == 201)  {
       console.log('Message sent!');
     } else {
       var apiResult = JSON.parse(body);
+      console.log('Error was: ' + apiResult.message);
+      outArgs.status = 'Error';
+      outArgs.error = apiResult.message;
+      console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
+    }
+  */
+    if (response.statusCode == 201)  {
+      console.log('Message sent!');
+    } else {
+      var apiResult = JSON.parse(response.body);
       console.log('Error was: ' + apiResult.message);
       outArgs.status = 'Error';
       outArgs.error = apiResult.message;

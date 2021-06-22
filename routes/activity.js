@@ -104,19 +104,17 @@ exports.execute = async function (req, res) {
     retmsg: "none"
   };
   
-  const response = await request.post(process.env.BLOWERIO_URL + '/messages', {
+  await request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
       'Accepts': 'application/json'
     },
+    url:     process.env.BLOWERIO_URL + '/messages',
     form:    {
-      'to': countryCode + mobileNumber,
-      'message': message
-    },
-    resolveWithFullResponse: true
-  });
-  /*
-  , function(error, response, body){
+      to: countryCode + mobileNumber,
+      message: message
+    }
+  }, function(error, response, body){
     if (!error && response.statusCode == 201)  {
       console.log('Message sent!');
     } else {
@@ -126,24 +124,14 @@ exports.execute = async function (req, res) {
       outArgs.error = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
-  */
-    if (response.statusCode == 201)  {
-      console.log('Message sent!');
-    } else {
-      console.log(JSON.stringify(response));
-      //var apiResult = JSON.parse(response.body);
-      //console.log('Error was: ' + apiResult.message);
-      outArgs.status = 'Error';
-      //outArgs.error = apiResult.message;
-      console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
-    }
 
     // return result
     console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
     return res.status(200).json(outArgs);
+  });
 
   //■■■■ REST API Call to send messge END　■■■■  
-};
+}
 
 exports.test = async function (req, res) {
   //■■■■ REST API Call to send messge START　■■■■

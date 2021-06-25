@@ -99,9 +99,8 @@ exports.execute = async function (req, res) {
 
   const outArgs = {
     status:'OK',
-    error :"none",
     info:`countryCode:${countryCode}|mobileNumber:${mobileNumber}|message:${message}`,
-    retmsg:"none"
+    retmsg:'none'
   };
   
   /*
@@ -122,7 +121,7 @@ exports.execute = async function (req, res) {
       var apiResult = JSON.parse(body);
       console.log('Error was: ' + apiResult.message);
       outArgs.status = 'Error';
-      outArgs.error = apiResult.message;
+      outArgs.retmsg = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
 
@@ -147,9 +146,8 @@ exports.test = async function (req, res) {
 
   var outArgs = {
     status: 'OK',
-    error : "none",
     info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
-    retmsg: "none"
+    retmsg: 'none'
   };
   
   await request.post({
@@ -169,7 +167,7 @@ exports.test = async function (req, res) {
       var apiResult = JSON.parse(body);
       console.log('Error was: ' + apiResult.message);
       outArgs.status = 'Error';
-      outArgs.error = apiResult.message;
+      outArgs.retmsg = apiResult.message;
       console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
     }
 

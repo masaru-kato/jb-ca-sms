@@ -26,6 +26,15 @@
         }
       ],
       "outArguments": [
+        {
+          "status": ""
+        },
+        {
+          "info": ""
+        },
+        {
+          "retmsg": ""
+        }
       ],
       "url": "https://jb-ca-sms.herokuapp.com/execute",
       "verb": "POST",
@@ -77,16 +86,61 @@
       "execute": {
         "inArguments": [
           {
-            "countryCode": {"dataType": "Text","isNullable": true,"direction": "in"},
-            "phone": {"dataType": "Text",  "isNullable": true,  "direction": "in"},
-            "message": {"dataType": "Text",  "isNullable": true,  "direction": "in"},
-            "contactKey": {"dataType": "Text",  "isNullable": false,  "direction": "in"},
-            "name": {"dataType": "Text",  "isNullable": true,  "direction": "in"},
-            "email": {"dataType": "Text",  "isNullable": true,  "direction": "in"},
-            "info": {"dataType": "Text",  "isNullable": true,  "direction": "in"}
+            "countryCode": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "phone": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "message": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "contactKey": {
+              "dataType": "Text",
+              "isNullable": false,
+              "direction": "in"
+            },
+            "name": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "email": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "info": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            }
           }
         ],
         "outArguments": [
+          {
+            "status": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            },
+            "info": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            },
+            "retmsg": {
+              "dataType": "Text",
+              "direction": "out",
+              "access": "visible"
+            }
+          }
         ]
       }
     }

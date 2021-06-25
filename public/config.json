@@ -92,11 +92,6 @@
           }
         ],
         "outArguments": [
-          {
-            "status": {"dataType": "Text","direction": "out","access": "visible"},
-            "info": {"dataType": "Text","direction": "out","access": "visible"},
-            "retmsg": {"dataType": "Text","direction": "out","access": "visible"}
-          }
         ]
       }
     }

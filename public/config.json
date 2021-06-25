@@ -26,11 +26,6 @@
         }
       ],
       "outArguments": [
-        {
-          "status":"",
-          "info":"",
-          "retmsg":""
-        }
       ],
       "url": "https://jb-ca-sms.herokuapp.com/execute",
       "verb": "POST",

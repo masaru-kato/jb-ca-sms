@@ -103,7 +103,6 @@ exports.execute = async function (req, res) {
     retmsg:'none'
   };
   
-  /*
   await request.post({
     headers: {
       'content-type' : 'application/x-www-form-urlencoded',
@@ -129,12 +128,11 @@ exports.execute = async function (req, res) {
     console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
     return res.status(200).json(outArgs);
   });
-  */
   //■■■■ REST API Call to send messge END　■■■■  
 
   // return result
-  console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
-  return res.status(200).json(outArgs);
+  //console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
+  //return res.status(200).json(outArgs);
 }
 
 exports.test = async function (req, res) {

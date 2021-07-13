@@ -130,51 +130,8 @@ exports.execute = async function (req, res) {
   });
   //■■■■ REST API Call to send messge END　■■■■  
 
-  // return result
-  //console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
-  //return res.status(200).json(outArgs);
 }
 
-exports.test = async function (req, res) {
-  //■■■■ REST API Call to send messge START　■■■■
-  var request = require('request');
-  var countryCode = '+81'; 
-  var mobileNumber = '8098984988';
-  var message = 'test message';
-
-  var outArgs = {
-    status: 'OK',
-    info: `countryCode:${countryCode},mobileNumber:${mobileNumber},message:${message}`,
-    retmsg: 'none'
-  };
-  
-  await request.post({
-    headers: {
-      'content-type' : 'application/x-www-form-urlencoded',
-      'Accepts': 'application/json'
-    },
-    url:     process.env.BLOWERIO_URL + '/messages',
-    form:    {
-      to: countryCode + mobileNumber,
-      message: message
-    }
-  }, function(error, response, body){
-    if (!error && response.statusCode == 201)  {
-      console.log('Message sent!');
-    } else {
-      var apiResult = JSON.parse(body);
-      console.log('Error was: ' + apiResult.message);
-      outArgs.status = 'Error';
-      outArgs.retmsg = apiResult.message;
-      console.error(`■ERROR INFO: ${JSON.stringify(outArgs)}`);
-    }
-
-    // return result
-    console.log(`■OUT ARGS: ${JSON.stringify(outArgs)}`);
-    return res.status(200).json(outArgs);
-  })
-  //■■■■ REST API Call to send messge END　■■■■  
-};
 /*
  * POST Handler for /publish/ route of Activity.
  */

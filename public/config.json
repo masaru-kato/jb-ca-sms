@@ -22,7 +22,8 @@
           "message": "",
           "name": "{{Contact.Attribute.TestDE1.FirstName}}",
           "email": "{{InteractionDefaults.Email}}",
-          "info": ""
+          "info": "",
+          "name2": "{{Event.DEAudience-60dbeaa2-f9c0-0af6-68e0-1168e802e1a6.name"
         }
       ],
       "outArguments": [
@@ -117,6 +118,11 @@
               "direction": "in"
             },
             "info": {
+              "dataType": "Text",
+              "isNullable": true,
+              "direction": "in"
+            },
+            "name2": {
               "dataType": "Text",
               "isNullable": true,
               "direction": "in"
